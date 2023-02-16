@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   user-select: none;
+  text-decoration: none;
 }
 
 body {

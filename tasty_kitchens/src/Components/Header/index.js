@@ -8,16 +8,18 @@ class Header extends Component {
         return(
             <div className='nav-bar'>
                 <div className='responsive-box'>
+                    <Link to='/'>
                         <div style={{display: "flex", flexDirection: "row", alignItems: "center", width: "280px", justifyContent: "space-between"}}>
-                            <Link to='/'>
+                            
                                 <img src={appLogo} alt="" className='app-logo' />
-                            </Link>
+                            
                             <h1 className='app-title'>Tasty Kitchens</h1>
                         </div>
+                    </Link>
                     <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
                         <ul className='nav-list'>
-                            <Link to="/" style={{TextDecoder: "none"}}>
-                                <li className='nav-link' style={{TextDecoder: "none"}}>Home</li>
+                            <Link to="/">
+                                <li className='nav-link'>Home</li>
                             </Link>
                             <Link to="/cart">
                                 <li className='nav-link'>Cart</li>
