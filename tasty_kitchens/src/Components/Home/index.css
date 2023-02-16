@@ -1,0 +1,19 @@
+.home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid blue;
+}
+
+.carousel-box {
+    width: 80%;
+    height: 300px;
+    margin-top: 10px;
+    /* border-radius: 10px; */
+}
+
+.carousel-img {
+    height: 300px;
+    width: 100%;
+}
