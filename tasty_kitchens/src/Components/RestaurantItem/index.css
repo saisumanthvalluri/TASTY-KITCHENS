@@ -1,5 +1,6 @@
 .restaurant-item {
-    width: 32%;
+    width: 320px;
+    height: 130px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,8 +15,8 @@
 }
 
 .rest-image {
-    width: 190px;
-    height: 140px;
+    width: 165px;
+    height: 100%;
     border-radius: 8px;
     margin-right: 10px;
 }
@@ -23,8 +24,8 @@
 .rest-name {
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 17px;
     line-height: 24px;
     letter-spacing: 0.2px;
     color: #334155;

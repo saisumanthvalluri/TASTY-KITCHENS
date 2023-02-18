@@ -7,9 +7,7 @@ import Popup from 'react-customizable-popup';
 import PuffLoader from "react-spinners/PuffLoader";
 import RestaurantsListContext from '../../Context/RestaurantsListContext'
 import RestaurantItem from '../RestaurantItem'
-// import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import { Pagination } from "@mui/material";
 import './index.css'
 
 const apiConstants = {
@@ -58,15 +56,14 @@ class Home extends Component {
         const sort = sortType === undefined ? "Lowest" : sortType
         const token = Cookies.get('jwt_token')
         const LIMIT = 9
-        const {currPage} = this.state
-        const offset = (currPage - 1) * LIMIT
+        const offset = (this.state.currPage - 1) * LIMIT
         const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${LIMIT}&sort_by_rating=${sort}`
         const options = {
             headers: {
               Authorization: `Bearer ${token}`,
             },
             method: 'GET',
-          } 
+          }
         const res = await fetch(url, options)
         const data = await res.json()
         if (res.ok === true) {
@@ -105,7 +102,7 @@ class Home extends Component {
         this.getRestaurantsList("Lowest")
     }
 
-    onChangePage = (e, value) => {
+    onChangePage = (e,value) => {
         this.setState({currPage: value})
     }
 
@@ -130,7 +127,7 @@ class Home extends Component {
                         <div>
                             <img src={e.image_url} key={e.id} alt={e.id} className="carousel-img" />
                         </div>
-                    ))} 
+                    ))}
                 </Slider>
             </div>
         )
@@ -156,7 +153,7 @@ class Home extends Component {
                 return this.renderLoader()
             // case apiConstants.failed:
             //     return this.carouselsFailureView()
-        
+
             default:
                 return null
         }
@@ -171,7 +168,7 @@ class Home extends Component {
                 return this.renderLoader()
             // case apiConstants.failed:
             //     return this.carouselsFailureView()
-        
+
             default:
                 return null
         }
@@ -199,7 +196,6 @@ class Home extends Component {
         const { sortType, restaurantsList, currPage } = this.state
         const lowestSortClass = sortType === "Lowest" ? "sort-option active" : "sort-option"
         const highestSortClass = sortType === "Highest" ? "sort-option active" : "sort-option"
-        console.log(currPage)
         return(
             <RestaurantsListContext.Provider
                 value={{
@@ -213,14 +209,14 @@ class Home extends Component {
                             <h1 className='popular-rest-text'>Popular Restaurants</h1>
                             <div className='caption-filter-box'>
                                 <h3 className='caption'>Select your favourite restaurant special dish and make your day happy...</h3>
-                                <Popup 
+                                <Popup
                                     arrow={false}
                                     toggler={
                                         <div className='fliter-box'>
                                             <BsFilterLeft className='filter-icon' />
                                             <h4 className='filter-text'>Sort by {sortType}</h4>
                                             <BsCaretDownFill className='filter-icon' style={{fontSize: "15px", marginTop: "5px"}} />
-                                        </div> 
+                                        </div>
                                     }>
                                         <div className='filter-popup'>
                                             <h3 onClick={this.onLowest} className={lowestSortClass}>Lowest</h3>
@@ -233,10 +229,13 @@ class Home extends Component {
                                 {this.renderRestaurantsRespectiveView()}
                             </div>
                             <div className='pagination-box'>
-                                <Stack spacing={2}>
-                                    {/* <Typography>Page: {page}</Typography> */}
-                                    <Pagination count={4} page={currPage} onChange={this.onChangePage} onClick={this.getRestaurantsList()} />
-                                </Stack>
+                                <Pagination
+                                    count={4}
+                                    page={currPage}
+                                    onChange={this.onChangePage}
+                                    variant="outlined"
+                                    color="secondary"
+                                />
                             </div>
                         </div>
                     </div>

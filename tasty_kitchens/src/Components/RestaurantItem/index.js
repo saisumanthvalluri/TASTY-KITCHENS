@@ -29,7 +29,6 @@ class RestaurantItem extends Component {
                 )
             }}
             </RestaurantsListContext.Consumer>
-            
         )
     }
 }
