@@ -1,9 +1,44 @@
+/* scrollbar styles start */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #F7931E;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* scrollbar styles ended */
+
 .home-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid blue;
+}
+
+.resp-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
 }
 
 .carousel-box {
@@ -16,4 +51,227 @@
 .carousel-img {
     height: 300px;
     width: 100%;
+}
+
+/* home body styles start */
+
+.home-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.popular-rest-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #183B56;
+    margin: 0;
+}
+
+.caption-filter-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.caption {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #64748B;
+    margin: 0;
+}
+
+.fliter-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.filter-icon {
+    color: #475569;
+    font-size: 28px;
+    margin: 0;
+}
+
+.filter-text {
+    margin: 0;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #475569;
+}
+
+.filter-popup {
+    height: 100px;
+    width: 150px;
+}
+
+.sort-option {
+    width: 100%;
+    height: 40px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.active {
+    background: #F1F5F9;
+    border-radius: 8px;
+}
+
+.active::after {
+    content: '\2713';
+}
+
+.hr-rule {
+    border: 1px solid #CBD2D9;
+    width: 100%;
+}
+
+.loader-box {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 90px;
+}
+
+.restaurants-box {
+    width: 100%;
+}
+
+.restaurants-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 0;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    .carousel-box {
+        width: 100%;
+        height: 200px;
+        border-radius: none;
+    }
+
+    .carousel-img {
+        height: 200px;
+        width: 100%;
+    }
+
+    .home-body {
+        width: 90%;
+    }
+
+    .popular-rest-text {
+        font-size: 22px;
+    }
+
+    .caption-filter-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .caption {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .fliter-box {
+        width: 150px;
+    }
+    
+    .filter-icon {
+        font-size: 24px;
+    }
+    
+    .filter-text {
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .filter-popup {
+        height: 80px;
+        width: 130px;
+    }
+
+    .sort-option {
+        width: 100%;
+        height: 35px;
+        font-size: 15px;
+    }
+
+    .hr-rule {
+        display: none;
+    }
+
+    .loader-box {
+        width: 100%;
+        height: 200px;
+    }
+
+    .restaurants-list {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        list-style-type: none;
+        flex-wrap: wrap;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 3px;
+        display: none;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #F7931E;
+        border-radius: 3px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
 }
