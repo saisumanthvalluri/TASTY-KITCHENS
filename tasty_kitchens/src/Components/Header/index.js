@@ -7,8 +7,9 @@ import {IoIosCloseCircle, IoMdClose} from 'react-icons/io'
 import './index.css'
 
 class Header extends Component {
-    state ={
+    state = {
         menuOpen:false,
+        activeTab: "Home",
     }
 
     onToggleMenu = () => {
@@ -34,7 +35,7 @@ class Header extends Component {
             <div className='nav-bar'>
                 <div className='responsive-box'>
                     <Link to='/'>
-                        <div style={{display: "flex", flexDirection: "row", alignItems: "center", width: "280px", justifyContent: "space-between"}}>
+                        <div style={{display: "flex", flexDirection: "row", alignItems: "center", width: "260px", justifyContent: "space-between"}}>
                             <img src={appLogo} alt="" className='app-logo' />
                             <h1 className='app-title'>Tasty Kitchens</h1>
                         </div>

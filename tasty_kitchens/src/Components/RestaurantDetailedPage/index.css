@@ -1,0 +1,171 @@
+.rest-details-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rest-details-responsive-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.rest-banner-box {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #333333;
+    margin-top: 5px;
+}
+
+.rest-image-details {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rest-d-image {
+    width: 350px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.rest-d-details {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.rest-d-name {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.rest-d-cuisine {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 6;
+}
+
+.rest-d-location {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.rest-d-rating-costfortwo-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.rest-review-rating-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.rest-d-rating-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+}
+
+.rest-d-rating {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.rest-d-reviews-count {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #E2E8F0;
+    margin: 0;
+    margin-top: 6px;
+}
+
+.rest-d-separation-pipe {
+    font-size: 50px;
+    font-weight: 200;
+    color: #E2E8F0;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.rest-d-costfortwo-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 7px;
+}
+
+.rest-d-costfortwo-amount {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 6px;
+}
+
+.rest-d-costfortwo-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #E2E8F0;
+    margin: 0;
+}
+
+.food-items-container {
+    width: 80%;
+    height: 200px;
+    border: 1px solid red;
+}
