@@ -188,64 +188,7 @@
     align-items: center;
 }
 
-.footer-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #0F172A;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-top: 20px;
-}
-
-.footer-app-logo-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.footer-app-logo  {
-    width: 50px;
-    height: 40px;
-    margin: 0;
-}
-
-.footer-app-title {
-    font-family: 'DM Sans';
-    font-style: italic;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 48px;
-    color: #FFFFFF;
-    margin: 0;
-    margin-left: 5px;
-}
-
-.footer-caption-text {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-}
-
-.social-media-icons-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 220px;
-    margin-top: 15px;
-}
-
-.social-media-icon {
-    font-size: 40px;
-    color: #FFFFFF;
-}
+/* home body styles ended */
 
 @media (max-width: 500px) {
     .carousel-box {

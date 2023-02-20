@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {withRouter, Link} from 'react-router-dom'
+import Popup from 'reactjs-popup'
 import appLogo from '../../IMG/AppLogo.png'
 import {RxHamburgerMenu} from 'react-icons/rx'
 import Cookies from 'js-cookie'
@@ -49,7 +50,23 @@ class Header extends Component {
                                 <li className='nav-link'>Cart</li>
                             </Link>
                         </ul>
-                        <button className='logout-btn' onClick={this.onLogout}>Logout</button>
+                        
+                        <Popup
+                            modal
+                            className="popup-content"
+                            trigger={
+                                <button className='logout-btn'>Logout</button>
+                            }>
+                            {close => (
+                                <div className='logout-popup-box'>
+                                    <h2 className='are-you-sure-text'>Are you sure you want to Logout?</h2>
+                                    <div className='buttons-box'>
+                                        <button className='btn cancel' onClick={() => close()}>Cancel</button>
+                                        <button className='btn confirm' onClick={this.onLogout}>Confirm</button>
+                                    </div>
+                                </div>
+                            )}
+                        </Popup>
                     </div>
                 </div>
                 <div className='mob-nav'>
@@ -70,7 +87,22 @@ class Header extends Component {
                             <Link to="/cart">
                                 <li className='nav-link' onClick={this.closeMenu}>Cart</li>
                             </Link>
-                            <button className='logout-btn' onClick={this.onLogout}>Logout</button>
+                            <Popup
+                                modal
+                                className="popup-content"
+                                trigger={
+                                    <button className='logout-btn'>Logout</button>
+                                }>
+                                {close => (
+                                    <div className='logout-popup-box'>
+                                        <h2 className='are-you-sure-text'>Are you sure you want to Logout?</h2>
+                                        <div className='buttons-box'>
+                                            <button className='btn cancel' onClick={() => close()}>Cancel</button>
+                                            <button className='btn confirm' onClick={this.onLogout}>Confirm</button>
+                                        </div>
+                                    </div>
+                                )}
+                            </Popup>
                         </ul>
                         <IoIosCloseCircle className='mob-menu-close-icon' onClick={this.closeMenu} />
                     </div>

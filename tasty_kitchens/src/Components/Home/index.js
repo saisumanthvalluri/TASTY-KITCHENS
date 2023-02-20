@@ -2,16 +2,14 @@ import Cookies from 'js-cookie'
 import {Component} from 'react'
 import Header from '../Header'
 import Slider from "react-slick"
-import {BsFilterLeft, BsCaretDownFill, BsInstagram, BsTwitter, BsWhatsapp} from 'react-icons/bs'
-import {FaFacebookSquare} from 'react-icons/fa'
-// import {TfiPinterest} from 'react-icons/tfi'
+import {BsFilterLeft, BsCaretDownFill} from 'react-icons/bs'
 import Popup from 'react-customizable-popup';
 import PuffLoader from "react-spinners/PuffLoader";
 import RestaurantsListContext from '../../Context/RestaurantsListContext'
 import RestaurantItem from '../RestaurantItem'
 import { Pagination } from "@mui/material";
-import FooterAppLogo from '../../IMG/FooterAppLogo.png'
 import {apiConstants} from '../../AppConstants'
+import Footer from '../Footer'
 import './index.css'
 
 class Home extends Component {
@@ -49,14 +47,12 @@ class Home extends Component {
             }
     }
 
-    getRestaurantsList = async (sortType) => {
+    getRestaurantsList = async (sortType="Lowest", currPage="1") => {
         this.setState({restaurantsApi: apiConstants.in_Progress})
-        const sort = sortType === undefined ? "Lowest" : sortType
         const token = Cookies.get('jwt_token')
-        console.log(token, "home")
         const LIMIT = 9
-        const offset = (this.state.currPage - 1) * LIMIT
-        const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${LIMIT}&sort_by_rating=${sort}`
+        const offset = (currPage - 1) * LIMIT
+        const url = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=${LIMIT}&sort_by_rating=${sortType}`
         const options = {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -103,6 +99,7 @@ class Home extends Component {
 
     onChangePage = (e,value) => {
         this.setState({currPage: value})
+        this.getRestaurantsList(this.state.sortType, value)
     }
 
     renderCarousels = () => {
@@ -237,20 +234,7 @@ class Home extends Component {
                                 />
                             </div>
                         </div>
-                        <div className='footer-box'>
-                            <div className='footer-app-logo-box'>
-                                <img src={FooterAppLogo} alt="app-logo" className='footer-app-logo' />
-                                <h2 className='footer-app-title'>Tasty Kitchens</h2>
-                            </div>
-                            <p className='footer-caption-text'>The only thing we are serious about is food.</p>
-                            <p className='footer-caption-text'>Contact Us</p>
-                            <div className='social-media-icons-box'>
-                                <BsInstagram className='social-media-icon' />
-                                <BsTwitter className='social-media-icon' />
-                                <FaFacebookSquare className='social-media-icon' />
-                                <BsWhatsapp className='social-media-icon' />
-                            </div>
-                        </div>
+                        <Footer />
                     </div>
                 </div>
             </RestaurantsListContext.Provider>

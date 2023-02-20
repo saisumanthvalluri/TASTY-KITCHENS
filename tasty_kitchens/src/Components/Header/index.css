@@ -57,12 +57,14 @@
     margin-left: 20px;
     cursor: pointer;
     outline: none;
+    transition: 0.3s ease-in-out;
 }
 
 .logout-btn:hover {
     background-color: transparent;
     color: #F7931E;
     border: 1px solid #F7931E;
+    transition: 0.3s ease-in-out;
 }
 
 .menu-list-box {
@@ -130,6 +132,77 @@
     margin: 0;
 }
 
+.logout-popup-box {
+    width: 280px;
+    height: 120px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
+}
+
+.are-you-sure-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #334155;
+    text-align: center;
+    margin: 0;
+}
+
+.buttons-box {
+    width: 72%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.btn {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    width: 40%;
+    height: 35px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.cancel {
+    color: #58cf34;
+    border: 1px solid #58cf34;
+    transition: 0.3s ease-in-out;
+}
+
+.cancel:hover {
+    background-color: #58cf34;
+    color: #FFFFFF;
+    transition: 0.3s ease-in-out;
+}
+
+.confirm {
+    color: #cf3d29;
+    border: 1px solid #cf3d29;
+    transition: 0.3s ease-in-out;
+}
+
+.confirm:hover {
+    transition: 0.3s ease-in-out;
+    color: #FFFFFF;
+    background-color: #cf3d29;
+}
+
 .mob-menu-close-icon:hover {
     color: #F7931E;
 }
@@ -169,6 +242,28 @@
         border-radius: 5px;
         font-size: 16px;
         margin: 0;
+    }
+
+    .logout-popup-box {
+        width: 250px;
+        height: 120px;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    .are-you-sure-text {
+        font-size: 16px;
+    }
+    
+    .buttons-box {
+        width: 72%;
+        margin-top: 10px;
+    }
+    
+    .btn {
+        width: 35%;
+        height: 30px;
+        border-radius: 6px;
     }
 }
 
