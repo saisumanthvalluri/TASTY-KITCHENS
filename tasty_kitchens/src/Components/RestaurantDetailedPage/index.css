@@ -22,7 +22,6 @@
     justify-content: center;
     align-items: center;
     background: #333333;
-    margin-top: 5px;
 }
 
 .rest-image-details {
@@ -164,8 +163,98 @@
     margin: 0;
 }
 
+.cart-loader-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+}
+
 .food-items-container {
     width: 80%;
-    height: 200px;
-    border: 1px solid red;
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+    .rest-banner-box {
+        width: 100%;
+        height: 200px;
+        padding: 5px;
+    }
+    
+    .rest-image-details {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .rest-d-image {
+        width: 180px;
+        height: 180px;
+        /* border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%; */
+        border-radius: 50%;
+        /* align-self: flex-start; */
+    }
+    
+    .rest-d-name {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    
+    .rest-d-cuisine {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 5px;
+        font-weight: 300;
+    }
+    
+    .rest-d-location {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 300;
+    }
+    
+    .rest-review-rating-box {
+        margin-right: 6px;
+        margin-top: 4px;
+    }
+    
+    .rest-d-rating {
+        margin-left: 4px;
+    }
+    
+    .rest-d-reviews-count {
+        font-size: 10px;
+        line-height: 12px;
+        display: flex;
+        align-items: center;
+        margin-top: 6px;
+    }
+    
+    .rest-d-costfortwo-amount {
+        font-size: 12px;
+    }
+    
+    .rest-d-costfortwo-text {
+        font-size: 10px;
+    }
+
+    .food-items-container {
+        width: 90%;
+        list-style-type: none;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
 }

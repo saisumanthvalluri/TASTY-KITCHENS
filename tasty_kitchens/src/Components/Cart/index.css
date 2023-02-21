@@ -3,3 +3,81 @@
     display: flex;
     flex-direction: column;
 }
+
+.cart-responsive-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.bowl-image {
+    width: 350px;
+}
+
+.no-orders-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 48px;
+    text-align: center;
+    color: #1E293B;
+    margin: 0;
+}
+
+.cart-empty-text {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #64748B;
+    margin: 0;
+}
+
+.order-btn {
+    width: 120px;
+    height: 35px;
+    background: #F7931E;
+    border-radius: 8px;
+    border: none;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-top: 15px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .cart-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bowl-image {
+        width: 230px;
+    }
+    
+    .no-orders-text {
+        font-size: 22px;
+    }
+    
+    .cart-empty-text {
+        font-size: 14px;
+    }
+    
+    .order-btn {
+        width: 110px;
+        font-size: 14px;
+    }
+}

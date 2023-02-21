@@ -23,8 +23,9 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        const page = localStorage.getItem('curr_page')
         this.getCarouselImages()
-        this.getRestaurantsList()
+        this.getRestaurantsList(this.state.sortType, page)
     }
 
     getCarouselImages = async () => {
@@ -98,6 +99,7 @@ class Home extends Component {
     }
 
     onChangePage = (e,value) => {
+        value === undefined ? (localStorage.setItem('curr_page', 1)) : localStorage.setItem('curr_page', value)
         this.setState({currPage: value})
         this.getRestaurantsList(this.state.sortType, value)
     }
@@ -189,7 +191,8 @@ class Home extends Component {
     }
 
     render() {
-        const { sortType, restaurantsList, currPage } = this.state
+        const page = parseInt(localStorage.getItem('curr_page'))
+        const { sortType, restaurantsList } = this.state
         const lowestSortClass = sortType === "Lowest" ? "sort-option selected" : "sort-option"
         const highestSortClass = sortType === "Highest" ? "sort-option selected" : "sort-option"
         return(
@@ -227,7 +230,7 @@ class Home extends Component {
                             <div className='pagination-box'>
                                 <Pagination
                                     count={4}
-                                    page={currPage}
+                                    page={page}
                                     onChange={this.onChangePage}
                                     variant="outlined"
                                     color="secondary"

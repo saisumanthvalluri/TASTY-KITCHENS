@@ -35,7 +35,7 @@
     margin: 10px;
 }
 
-.nav-link:active {
+.active {
     color: #F7931E;
 }
 
@@ -206,6 +206,8 @@
 .mob-menu-close-icon:hover {
     color: #F7931E;
 }
+
+/* mobile navbar styles ended */
 
 @media (max-width: 500px) {
     .responsive-box {

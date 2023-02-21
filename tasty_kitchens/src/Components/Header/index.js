@@ -10,7 +10,6 @@ import './index.css'
 class Header extends Component {
     state = {
         menuOpen:false,
-        activeTab: "Home",
     }
 
     onToggleMenu = () => {
@@ -23,11 +22,23 @@ class Header extends Component {
 
     onLogout = () => {
         const {history} = this.props
+        localStorage.setItem('curr_page', 1)
         Cookies.remove('jwt_token')
         history.replace('/login')
     }
+
+    onHome = () => {
+        const {history} = this.props
+        console.log(history)
+    }
     
     render() {
+        const {location} = this.props
+        const {pathname} = location
+        const pathParts = pathname.split('/')
+        const path = pathParts[1]
+        const homeLinkColor = path === "" ? "nav-link active" : "nav-link"
+        const cartLinkColor = path === "cart" ? "nav-link active" : "nav-link"
         const menuIcon = this.state.menuOpen ? 
             (<IoMdClose className='mob-menu-icon' onClick={this.onToggleMenu} />) 
                 : (<RxHamburgerMenu className='mob-menu-icon' onClick={this.onToggleMenu} />)
@@ -43,11 +54,11 @@ class Header extends Component {
                     </Link>
                     <div className='menu-list-box'>
                         <ul className='nav-list'>
-                            <Link to="/">
-                                <li className='nav-link'>Home</li>
+                            <Link to="/" onClick={this.onHome}>
+                                <li className={homeLinkColor}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <li className='nav-link'>Cart</li>
+                                <li className={cartLinkColor}>Cart</li>
                             </Link>
                         </ul>
                         
@@ -82,10 +93,10 @@ class Header extends Component {
                     <div className='menu-list-box'>
                         <ul className='nav-list'>
                             <Link to="/">
-                                <li className='nav-link' onClick={this.closeMenu}>Home</li>
+                                <li className={homeLinkColor} onClick={this.closeMenu}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <li className='nav-link' onClick={this.closeMenu}>Cart</li>
+                                <li className={cartLinkColor} onClick={this.closeMenu}>Cart</li>
                             </Link>
                             <Popup
                                 modal
