@@ -1,25 +1,123 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Header";
+import Footer from "../Footer";
+import CartItem from "../CartItem";
 import NoCartView from '../../IMG/NoCartView.png'
+import SuccessTick from '../../IMG/SuccessTickImg.png'
+import {BiRupee} from 'react-icons/bi'
 import './index.css'
 
 class Cart extends Component {
+
+    state = {
+        itemsList: [],
+        placeOrder: false,
+    }
+
+    componentDidMount() {
+        const itemsList = JSON.parse(localStorage.getItem('cart_items'))
+        this.setState({itemsList})
+    }
+
+    onPlaceOrder = () => {
+        this.setState({placeOrder: true})
+        localStorage.removeItem('cart_items')
+    }
+    
+    renderEmptyCartView = () => (
+        <div className="empty-cart-box">
+            <img src={NoCartView} alt="no cart view" className="bowl-image" />
+            <h2 className="no-orders-text">No Orders Yet!</h2>
+            <p className="cart-empty-text">Your cart is empty. Add somthing from the menu.</p>
+            <Link to="/">
+                <button className='order-btn'>Order Now</button>
+            </Link>
+        </div>
+    )
+
+    renderPaymentSuccessView = () => (
+        <div className="payment-container">
+            <img src={SuccessTick} alt="payment success" className="pay-success-img" />
+            <h1 className="pay-success-text">Payment Successful</h1>
+            <p className="thanks-text">
+                Thank you for ordering.<br />
+                Your payment is successfully completed.
+            </p>
+            <Link to='/'>
+                <button className="go-to-home-btn">Go To Home Page</button>
+            </Link>
+        </div>
+    )
+
+    updateQuantity = (id, quantity) => {
+        const {itemsList} = this.state
+        for (let i of itemsList) {
+            if (id === i.id) {
+                i.quantity = quantity
+            }
+        }
+        let finalPrice = 0
+        for (let i of itemsList) {
+            finalPrice += i.quantity * i.cost
+        }
+        console.log(itemsList, finalPrice, "==========")
+    }
+
+    renderCartItems = () => {
+        let finalPrice = 0
+        const {itemsList} = this.state
+        for (let i of itemsList) {
+            finalPrice += i.cost
+        }
+        return(
+            <>
+                <div className="cart-items-box">
+                    <div className="t-header">
+                        <h1 className="t-h-item">Item</h1>
+                        <h1 className="t-h-item">Quantity</h1>
+                        <h1 className="t-h-item">Price</h1>
+                    </div>
+                    <ul className="cart-items-list">
+                        {itemsList.map(e => (
+                            <CartItem key={e.id} itemDetails={e} updateQuantity={this.updateQuantity} />
+                        ))}
+                        <hr className="cart-items-line" />
+                    </ul>
+                    <div className="total-price-box">
+                        <h1 className="order-total-text">Order Total:</h1>
+                        <div className="box">
+                            <h1 className="total-price"><BiRupee /> {finalPrice}</h1>
+                        </div>
+                    </div>
+                    <button className="place-order-btn" onClick={this.onPlaceOrder}>Place Order</button>
+                </div>
+                <Footer />
+            </>
+        )
+    }
+
+    renderRespectiveView = () => {
+        const {itemsList, placeOrder} = this.state
+        if (itemsList === null) {
+            return this.renderEmptyCartView()
+        } else if (itemsList !== null && placeOrder === false) {
+            return this.renderCartItems()
+        } else {
+            return this.renderPaymentSuccessView()
+        }
+    }
+
     render() {
         return(
             <div className="cart-container">
                 <Header />
                 <div className="cart-responsive-box">
-                    <img src={NoCartView} alt="no cart view" className="bowl-image" />
-                    <h2 className="no-orders-text">No Orders Yet!</h2>
-                    <p className="cart-empty-text">Your cart is empty. Add somthing from the menu.</p>
-                    <Link to="/">
-                        <button className='order-btn'>Order Now</button>
-                    </Link>
+                    {this.renderRespectiveView()}
                 </div>
             </div>
         )
     }
 }
 
-export default Cart
+export default Cart 

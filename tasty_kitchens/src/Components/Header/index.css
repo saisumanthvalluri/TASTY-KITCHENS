@@ -32,7 +32,7 @@
     line-height: 26px;
     letter-spacing: -0.355556px;
     color: #334155;
-    margin: 10px;
+    margin-right: 30px;
 }
 
 .active {
@@ -65,13 +65,6 @@
     color: #F7931E;
     border: 1px solid #F7931E;
     transition: 0.3s ease-in-out;
-}
-
-.menu-list-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
 }
 
 /* mobile navbar styles start */
@@ -123,6 +116,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 300px;
 }
 
 .mob-menu-close-icon {

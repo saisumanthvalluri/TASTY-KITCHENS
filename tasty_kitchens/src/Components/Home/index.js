@@ -5,7 +5,6 @@ import Slider from "react-slick"
 import {BsFilterLeft, BsCaretDownFill} from 'react-icons/bs'
 import Popup from 'react-customizable-popup';
 import PuffLoader from "react-spinners/PuffLoader";
-import RestaurantsListContext from '../../Context/RestaurantsListContext'
 import RestaurantItem from '../RestaurantItem'
 import { Pagination } from "@mui/material";
 import {apiConstants} from '../../AppConstants'
@@ -20,12 +19,14 @@ class Home extends Component {
         carouselApi: apiConstants.initial,
         restaurantsApi: apiConstants.initial,
         currPage: 1,
+        cartItems: [],
     }
 
     componentDidMount() {
         const page = localStorage.getItem('curr_page')
+        const currPage = page === null ? 1 : parseInt(page)
         this.getCarouselImages()
-        this.getRestaurantsList(this.state.sortType, page)
+        this.getRestaurantsList(this.state.sortType, currPage)
     }
 
     getCarouselImages = async () => {
@@ -191,56 +192,52 @@ class Home extends Component {
     }
 
     render() {
-        const page = parseInt(localStorage.getItem('curr_page'))
-        const { sortType, restaurantsList } = this.state
+        const page = localStorage.getItem('curr_page')
+        const currPage = page === null ? 1 : parseInt(page)
+        const { sortType } = this.state
         const lowestSortClass = sortType === "Lowest" ? "sort-option selected" : "sort-option"
         const highestSortClass = sortType === "Highest" ? "sort-option selected" : "sort-option"
         return(
-            <RestaurantsListContext.Provider
-                value={{
-                    restaurantsList,
-                }}>
-                <div className='home-container'>
-                    <Header />
-                    <div className='resp-box'>
-                        {this.renderCarouselsRespectiveView()}
-                        <div className='home-body'>
-                            <h1 className='popular-rest-text'>Popular Restaurants</h1>
-                            <div className='caption-filter-box'>
-                                <h3 className='caption'>Select your favourite restaurant special dish and make your day happy...</h3>
-                                <Popup
-                                    arrow={false}
-                                    toggler={
-                                        <div className='fliter-box'>
-                                            <BsFilterLeft className='filter-icon' />
-                                            <h4 className='filter-text'>Sort by {sortType}</h4>
-                                            <BsCaretDownFill className='filter-icon' style={{fontSize: "15px", marginTop: "5px"}} />
-                                        </div>
-                                    }>
-                                        <div className='filter-popup'>
-                                            <h3 onClick={this.onLowest} className={lowestSortClass}>Lowest</h3>
-                                            <h3 onClick={this.onHighest} className={highestSortClass}>Highest</h3>
-                                        </div>
-                                </Popup>
-                            </div>
-                            <hr className='hr-rule' />
-                            <div className='restaurants-box'>
-                                {this.renderRestaurantsRespectiveView()}
-                            </div>
-                            <div className='pagination-box'>
-                                <Pagination
-                                    count={4}
-                                    page={page}
-                                    onChange={this.onChangePage}
-                                    variant="outlined"
-                                    color="secondary"
-                                />
-                            </div>
+            <div className='home-container'>
+                <Header />
+                <div className='resp-box'>
+                    {this.renderCarouselsRespectiveView()}
+                    <div className='home-body'>
+                        <h1 className='popular-rest-text'>Popular Restaurants</h1>
+                        <div className='caption-filter-box'>
+                            <h3 className='caption'>Select your favourite restaurant special dish and make your day happy...</h3>
+                            <Popup
+                                arrow={false}
+                                toggler={
+                                    <div className='fliter-box'>
+                                        <BsFilterLeft className='filter-icon' />
+                                        <h4 className='filter-text'>Sort by {sortType}</h4>
+                                        <BsCaretDownFill className='filter-icon' style={{fontSize: "15px", marginTop: "5px"}} />
+                                    </div>
+                                }>
+                                    <div className='filter-popup'>
+                                        <h3 onClick={this.onLowest} className={lowestSortClass}>Lowest</h3>
+                                        <h3 onClick={this.onHighest} className={highestSortClass}>Highest</h3>
+                                    </div>
+                            </Popup>
                         </div>
-                        <Footer />
+                        <hr className='hr-rule' />
+                        <div className='restaurants-box'>
+                            {this.renderRestaurantsRespectiveView()}
+                        </div>
+                        <div className='pagination-box'>
+                            <Pagination
+                                count={4}
+                                page={currPage}
+                                onChange={this.onChangePage}
+                                variant="outlined"
+                                color="secondary"
+                            />
+                        </div>
                     </div>
+                    <Footer />
                 </div>
-            </RestaurantsListContext.Provider>
+            </div>
         )
     }
 }

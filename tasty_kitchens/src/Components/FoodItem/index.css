@@ -113,17 +113,21 @@
     cursor: pointer;
 }
 
+.snak-bar {
+    margin-top: 60px;
+}
+
 @media (max-width: 500px) {
     .food-item {
         width: 100%;
-        height: 131.5px;
+        height: 126px;
         margin-bottom: 20px;
         border-radius: 10px;
     }
     
     .food-item-image {
-        width: 160px;
-        height: 130px;
+        width: 150px;
+        height: 125px;
         border-radius: 10px;
     }
     

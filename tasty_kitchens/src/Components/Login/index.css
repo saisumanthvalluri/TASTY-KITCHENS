@@ -119,6 +119,10 @@
     margin-top: 20px;
 }
 
+.login-btn:hover {
+    opacity: 0.8;
+}
+
 .mob-img {
     background-image: url(../../IMG/LoginImgMob.png);
     background-repeat: no-repeat;

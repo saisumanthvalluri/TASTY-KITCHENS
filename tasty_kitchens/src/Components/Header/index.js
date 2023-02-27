@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {withRouter, Link} from 'react-router-dom'
+import Badge from '@mui/material/Badge';
 import Popup from 'reactjs-popup'
 import appLogo from '../../IMG/AppLogo.png'
 import {RxHamburgerMenu} from 'react-icons/rx'
@@ -30,9 +31,12 @@ class Header extends Component {
     onHome = () => {
         const {history} = this.props
         console.log(history)
+        localStorage.setItem('curr_page', "1")
     }
     
     render() {
+        const itemsList = JSON.parse(localStorage.getItem('cart_items'))
+        const badgeNum = itemsList === null ? 0 : itemsList.length
         const {location} = this.props
         const {pathname} = location
         const pathParts = pathname.split('/')
@@ -46,7 +50,7 @@ class Header extends Component {
         return(
             <div className='nav-bar'>
                 <div className='responsive-box'>
-                    <Link to='/'>
+                    <Link to='/' onClick={this.onHome}>
                         <div style={{display: "flex", flexDirection: "row", alignItems: "center", width: "260px", justifyContent: "space-between"}}>
                             <img src={appLogo} alt="" className='app-logo' />
                             <h1 className='app-title'>Tasty Kitchens</h1>
@@ -58,10 +62,11 @@ class Header extends Component {
                                 <li className={homeLinkColor}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <li className={cartLinkColor}>Cart</li>
+                                <Badge badgeContent={badgeNum} color="success">
+                                    <li className={cartLinkColor} style={{marginRight: "0px"}}>Cart</li>
+                                </Badge>
                             </Link>
                         </ul>
-                        
                         <Popup
                             modal
                             className="popup-content"
@@ -81,7 +86,7 @@ class Header extends Component {
                     </div>
                 </div>
                 <div className='mob-nav'>
-                    <Link to='/'>
+                    <Link to='/' onClick={this.onHome}>
                         <div className='mob-logo-box'>
                             <img src={appLogo} className="mob-app-logo" alt="app-logo" />
                             <h1 className='mob-app-title'>Tasty Kitchens</h1>
@@ -92,11 +97,13 @@ class Header extends Component {
                 {this.state.menuOpen ? (
                     <div className='menu-list-box'>
                         <ul className='nav-list'>
-                            <Link to="/">
+                            <Link to="/" onClick={this.onHome}>
                                 <li className={homeLinkColor} onClick={this.closeMenu}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <li className={cartLinkColor} onClick={this.closeMenu}>Cart</li>
+                                <Badge badgeContent={badgeNum} color="success">
+                                    <li className={cartLinkColor} style={{marginRight: "0px"}}>Cart</li>
+                                </Badge>
                             </Link>
                             <Popup
                                 modal
