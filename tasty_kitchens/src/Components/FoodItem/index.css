@@ -1,3 +1,7 @@
+:root {
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .food-item {
     width: 40%;
     height: 161px;
@@ -23,9 +27,9 @@
 }
 
 .food-item-name {
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 0.2px;
@@ -37,7 +41,7 @@
 .food-item-cost {
     font-family: 'DM Sans';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
     line-height: 24px;
     color: #334155;
@@ -54,7 +58,7 @@
 }
 
 .food-item-rating {
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -66,7 +70,7 @@
 }
 
 .add-item-btn {
-    font-family: 'Inter';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -97,7 +101,7 @@
 }
 
 .food-quantity {
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

@@ -1,3 +1,7 @@
+:root {
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 /* scrollbar styles start */
 
 /* width */
@@ -64,9 +68,9 @@
 }
 
 .popular-rest-text {
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 32px;
     line-height: 48px;
     color: #183B56;
@@ -82,7 +86,7 @@
 }
 
 .caption {
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -109,7 +113,7 @@
 
 .filter-text {
     margin: 0;
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -125,7 +129,7 @@
 .sort-option {
     width: 100%;
     height: 40px;
-    font-family: 'DM Sans';
+    font-family: var(--font);
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
