@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/home/static/css/main.81f0ff59.css",
-    "main.js": "/home/static/js/main.65ab978d.js",
-    "static/media/LoginImg.png": "/home/static/media/LoginImg.772d869c56219048bad2.png",
-    "static/media/LoginImgMob.png": "/home/static/media/LoginImgMob.642e03f77507b18df30b.png",
-    "static/media/NotFoundImg.png": "/home/static/media/NotFoundImg.0a4bcf802a3f71627d40.png",
-    "static/media/NoCartView.png": "/home/static/media/NoCartView.60d5021147bc28395e7f.png",
-    "static/media/BgImg.png": "/home/static/media/BgImg.084dca414bff8aba727a.png",
-    "index.html": "/home/index.html",
-    "main.81f0ff59.css.map": "/home/static/css/main.81f0ff59.css.map",
-    "main.65ab978d.js.map": "/home/static/js/main.65ab978d.js.map"
+    "main.css": "/saisumanthvalluri/TASTY-KITCHENS/static/css/main.7d2c6794.css",
+    "main.js": "/saisumanthvalluri/TASTY-KITCHENS/static/js/main.89af19ae.js",
+    "static/media/LoginImg.png": "/saisumanthvalluri/TASTY-KITCHENS/static/media/LoginImg.772d869c56219048bad2.png",
+    "static/media/LoginImgMob.png": "/saisumanthvalluri/TASTY-KITCHENS/static/media/LoginImgMob.642e03f77507b18df30b.png",
+    "static/media/NotFoundImg.png": "/saisumanthvalluri/TASTY-KITCHENS/static/media/NotFoundImg.0a4bcf802a3f71627d40.png",
+    "static/media/NoCartView.png": "/saisumanthvalluri/TASTY-KITCHENS/static/media/NoCartView.60d5021147bc28395e7f.png",
+    "static/media/BgImg.png": "/saisumanthvalluri/TASTY-KITCHENS/static/media/BgImg.084dca414bff8aba727a.png",
+    "index.html": "/saisumanthvalluri/TASTY-KITCHENS/index.html",
+    "main.7d2c6794.css.map": "/saisumanthvalluri/TASTY-KITCHENS/static/css/main.7d2c6794.css.map",
+    "main.89af19ae.js.map": "/saisumanthvalluri/TASTY-KITCHENS/static/js/main.89af19ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.81f0ff59.css",
-    "static/js/main.65ab978d.js"
+    "static/css/main.7d2c6794.css",
+    "static/js/main.89af19ae.js"
   ]
 }
