@@ -30,7 +30,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 17px;
-    line-height: 24px;
+    line-height: 20px;
     letter-spacing: 0.2px;
     color: #334155;
     margin: 0;
@@ -42,7 +42,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    line-height: 24px;
+    line-height: 20px;
     color: #64748B;
     margin: 0;
     margin-bottom: 5px;
@@ -82,6 +82,7 @@
         width: 100%;
         margin-bottom: 25px;
         border-radius: 8px;
+        height: 120.8px;
         box-shadow: 0 0.4px 1px rgb(0 0 0 / 20%);
     }
 

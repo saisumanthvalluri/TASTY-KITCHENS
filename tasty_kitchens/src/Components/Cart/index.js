@@ -13,11 +13,12 @@ class Cart extends Component {
     state = {
         itemsList: [],
         placeOrder: false,
+        intervalId: null,
     }
 
     componentDidMount() {
         const itemsList = JSON.parse(localStorage.getItem('cart_items'))
-        this.setState({itemsList})
+          this.setState({itemsList})
     }
 
     onPlaceOrder = () => {
@@ -50,25 +51,16 @@ class Cart extends Component {
         </div>
     )
 
-    updateQuantity = (id, quantity) => {
-        const {itemsList} = this.state
-        for (let i of itemsList) {
-            if (id === i.id) {
-                i.quantity = quantity
-            }
-        }
-        let finalPrice = 0
-        for (let i of itemsList) {
-            finalPrice += i.quantity * i.cost
-        }
-        console.log(itemsList, finalPrice, "==========")
+    onRefresh = () => {
+        const itemsList = JSON.parse(localStorage.getItem('cart_items'))
+        this.setState({itemsList})
     }
 
     renderCartItems = () => {
         let finalPrice = 0
         const {itemsList} = this.state
         for (let i of itemsList) {
-            finalPrice += i.cost
+            finalPrice += i.cost * i.quantity
         }
         return(
             <>
@@ -80,7 +72,7 @@ class Cart extends Component {
                     </div>
                     <ul className="cart-items-list">
                         {itemsList.map(e => (
-                            <CartItem key={e.id} itemDetails={e} updateQuantity={this.updateQuantity} />
+                            <CartItem key={e.id} itemDetails={e} onRefresh={this.onRefresh} />
                         ))}
                         <hr className="cart-items-line" />
                     </ul>
@@ -90,7 +82,10 @@ class Cart extends Component {
                             <h1 className="total-price"><BiRupee /> {finalPrice}</h1>
                         </div>
                     </div>
-                    <button className="place-order-btn" onClick={this.onPlaceOrder}>Place Order</button>
+                    <div className="plaord-ref-btn-box">
+                        <button className="place-order-btn" onClick={this.onPlaceOrder}>Place Order</button>
+                        <button className="place-order-btn" onClick={this.onRefresh}>Refresh</button>
+                    </div>
                 </div>
                 <Footer />
             </>

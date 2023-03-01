@@ -29,8 +29,6 @@ class Header extends Component {
     }
 
     onHome = () => {
-        const {history} = this.props
-        console.log(history)
         localStorage.setItem('curr_page', "1")
     }
     

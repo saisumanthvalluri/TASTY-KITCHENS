@@ -31,17 +31,19 @@ class FoodItem extends Component {
     renderAddSection = () => {
         const {quantity} = this.state
         return(
-            <div className="add-box">
-                <AiOutlineMinusSquare className="add-buttons" onClick={this.onDecrease} />
-                <span className="food-quantity">{quantity}</span>
-                <AiOutlinePlusSquare className="add-buttons" onClick={this.onIncrease} />
+            <div className='add-btn-box'>
+                <div className="add-box">
+                    <AiOutlineMinusSquare className="add-buttons" onClick={this.onDecrease} />
+                    <span className="food-quantity">{quantity}</span>
+                    <AiOutlinePlusSquare className="add-buttons" onClick={this.onIncrease} />
+                </div>
+                <button className="add-item-btn">ADD</button>
             </div>
         )
     }
 
     goToCart = () => {
         const {history} = this.props
-        console.log(history, "yyyyyy")
         history.replace('/cart')
     }
 
@@ -72,7 +74,10 @@ class FoodItem extends Component {
                 {value => {
                     const { setCartItems} = value
                     const onToggle = () => {
-                        this.setState({quantity: 1, open: true})
+                        this.setState({quantity: 1})
+                    }
+
+                    const onAddItem = () => {
                         const foodItem = {
                             cost,
                             quantity: this.state.quantity,
@@ -81,15 +86,25 @@ class FoodItem extends Component {
                             name,
                         }
                         setCartItems(foodItem)
+                        this.setState({open: true})
                     }
                     return(
                         <li className="food-item">
-                            <img src={imageUrl} alt="hbsj" className="food-item-image" />
+                            <img src={imageUrl} alt="food item" className="food-item-image" />
                             <div className="food-item-details">
                                 <h3 className="food-item-name">{name}</h3>
                                 <h4 className="food-item-cost"><BiRupee /> {cost}</h4>
                                 <h3 className="food-item-rating"><AiFillStar className="star" /> {rating}</h3>
-                                {this.state.quantity > 0 ? (this.renderAddSection()) : (<button className="add-item-btn" onClick={onToggle}>ADD</button>)}
+                                {this.state.quantity > 0 ? (
+                                    <div className='add-btn-box'>
+                                        <div className="add-box">
+                                            <AiOutlineMinusSquare className="add-buttons" onClick={this.onDecrease} />
+                                            <span className="food-quantity">{this.state.quantity}</span>
+                                            <AiOutlinePlusSquare className="add-buttons" onClick={this.onIncrease} />
+                                        </div>
+                                        <button className="add-item-btn" onClick={onAddItem} disabled={this.state.open}>ADD</button>
+                                    </div>
+                                ) : (<button className="add-item-btn" onClick={onToggle}>ADD</button>)}
                                 <Snackbar
                                     open={this.state.open}
                                     autoHideDuration={6000}

@@ -127,7 +127,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 320px;
+    /* border: 1px solid green; */
 }
 
 .order-total-text {
@@ -152,9 +153,19 @@
     margin: 0;
 }
 
+.plaord-ref-btn-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin-top: 15px;
+    justify-content: flex-end;
+    /* border: 1px solid red; */
+}
+
 .place-order-btn {
     width: 100px;
-    height: 34px;
+    height: 36px;
     border: none;
     background-color: #F7931E;
     color: #FFFFFF;
@@ -167,8 +178,7 @@
     font-size: 12px;
     line-height: 16px;
     align-self: flex-end;
-    margin-right: 150px;
-    margin-top: 15px;
+    margin-right: 40px;
 }
 
 .payment-container {

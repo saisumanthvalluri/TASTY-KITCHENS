@@ -12,7 +12,6 @@ import './App.css';
 class App extends Component {
   state = {
     cartItems: [],
-    quantity: 1,
   }
 
   componentDidMount() {
@@ -20,31 +19,34 @@ class App extends Component {
     this.setState({cartItems})
   }
 
-  // componentWillUnmount() {
-  //   this.updateLocalStorage()
-  // }
-
   setCartItems = (newItem) => {
-      // const {id} = newItem
-      // const {cartItems} = this.state
-      // for (let i in cartItems) {
-      //   if (i.id === id) {
-          
-      //   }
-      // }
-      // this.setState(prev => ({
-      //     cartItems: [...prev.cartItems, newItem]
-      // }))
     const list = []
     const cartItems = JSON.parse(localStorage.getItem('cart_items'))
-    if (cartItems === null) {
-      list.push(newItem)
-      localStorage.setItem('cart_items', JSON.stringify(list))
-    } else {
-      const updatedList = [...cartItems, newItem]
-      console.log(cartItems)
-      localStorage.setItem('cart_items', JSON.stringify(updatedList))
+    if (cartItems !== null) {
+      for (let i of cartItems) {
+        if (i.id === newItem.id) {
+          i.quantity = newItem.quantity
+          localStorage.setItem('cart_items', JSON.stringify(cartItems))
+        } else { 
+            const updatedList = [...cartItems, newItem]
+            localStorage.setItem('cart_items', JSON.stringify(updatedList))
+          }
+      }
+    } else if (cartItems === null) {
+        list.push(newItem)
+        localStorage.setItem('cart_items', JSON.stringify(list))
+      }
+  }
+
+  updateQunatity = (item) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart_items'))
+    for (let i of cartItems) {
+      if (i.id === item.id) {
+        console.log(item.id, "++++++")
+        i.quantity = item.quantity
+      }
     }
+    localStorage.setItem('cart_items', JSON.stringify(cartItems))
   }
 
 
@@ -52,19 +54,19 @@ class App extends Component {
     const {cartItems} = this.state
     return(
       <BrowserRouter>
-      <CartItemsContext.Provider
-        value={{
-          cartItems, setCartItems: this.setCartItems
-        }}>
-        <Switch>
-            <Route exact path='/login' component={Login} />
-            <ProtectedRoute exact path='/' component={Home} />
-            <ProtectedRoute exact path='/cart' component={Cart} />
-            <ProtectedRoute exact path='/restaurants-list/:id' component={RestaurantDetailedPage} />
-            <ProtectedRoute exact path="/not-found" component={PageNotFound} />
-            <Redirect to="/not-found" />
-          </Switch>
-      </CartItemsContext.Provider>
+        <CartItemsContext.Provider
+          value={{
+            cartItems, setCartItems: this.setCartItems, updateQuantity: this.updateQunatity
+          }}>
+            <Switch>
+              <Route exact path='/login' component={Login} />
+              <ProtectedRoute exact path='/' component={Home} />
+              <ProtectedRoute exact path='/cart' component={Cart} />
+              <ProtectedRoute exact path='/restaurants-list/:id' component={RestaurantDetailedPage} />
+              <ProtectedRoute exact path="/not-found" component={PageNotFound} />
+              <Redirect to="/not-found" />
+            </Switch>
+        </CartItemsContext.Provider>
       </BrowserRouter>
     )
   }

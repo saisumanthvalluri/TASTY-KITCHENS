@@ -98,6 +98,7 @@
     width: 100px;
     justify-content: space-between;
     margin-top: 15px;
+    margin-right: 10px;
 }
 
 .food-quantity {
@@ -119,6 +120,12 @@
 
 .snak-bar {
     margin-top: 60px;
+}
+
+.add-btn-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 @media (max-width: 500px) {

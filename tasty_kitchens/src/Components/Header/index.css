@@ -1,3 +1,7 @@
+:root {
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .nav-bar {
     width: 100%;
     display: flex;
@@ -26,7 +30,7 @@
 
 .nav-link {
     text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font);
     font-weight: 700;
     font-size: 24px;
     line-height: 26px;
@@ -47,7 +51,7 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -92,12 +96,13 @@
 }
 
 .mob-app-title {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font);
     font-style: italic;
     font-weight: 600;
     font-size: 25px;
     line-height: 24px;
     color: #F7931E;
+    margin-left: 8px;
 }
 
 .mob-menu-icon {
@@ -139,7 +144,7 @@
 }
 
 .are-you-sure-text {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font);
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -160,7 +165,7 @@
 }
 
 .btn {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font);
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

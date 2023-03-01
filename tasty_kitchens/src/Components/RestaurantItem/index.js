@@ -6,9 +6,8 @@ import './index.css'
 class RestaurantItem extends Component {
     render() {
         const {data} = this.props
-        const {id, name, cuisine, menuType, userRating, imageUrl} = data
+        const {id, name, cuisine, userRating, imageUrl} = data
         const {rating, ratingColor, totalReviews} = userRating
-        console.log(menuType)
         return(
             <Link to={`/restaurants-list/${id}`}>
                 <li className="restaurant-item">

@@ -10,6 +10,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
+    /* border: 1px solid blue; */
 }
 
 .image-name-box {
@@ -31,7 +32,7 @@
     font-family: var(--font);
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     letter-spacing: 0.2px;
     color: #183B56;
@@ -46,6 +47,7 @@
     justify-content: center;
     width: 33%;
     margin: 0;
+    /* border: 1px solid pink; */
 }
 
 .cart-item-quantity-icon {
@@ -72,6 +74,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    /* border: 1px solid pink; */
 }
 
 .cart-item-price {
@@ -82,6 +85,7 @@
     line-height: 24px;
     color: #FFA412;
     margin: 0;
+    margin-left: 25px;
     text-align: center;
     display: flex;
     align-items: center;
