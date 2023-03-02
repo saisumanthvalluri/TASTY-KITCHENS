@@ -22,24 +22,7 @@ class FoodItem extends Component {
     }
 
     onDecrease = () => {
-        const {quantity} = this.state
-        if (quantity > 1) {
-            this.setState(prev => ({quantity: prev.quantity - 1}))
-        }
-    }
-
-    renderAddSection = () => {
-        const {quantity} = this.state
-        return(
-            <div className='add-btn-box'>
-                <div className="add-box">
-                    <AiOutlineMinusSquare className="add-buttons" onClick={this.onDecrease} />
-                    <span className="food-quantity">{quantity}</span>
-                    <AiOutlinePlusSquare className="add-buttons" onClick={this.onIncrease} />
-                </div>
-                <button className="add-item-btn">ADD</button>
-            </div>
-        )
+        this.setState(prev => ({quantity: prev.quantity - 1}))
     }
 
     goToCart = () => {

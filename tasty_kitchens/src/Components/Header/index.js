@@ -29,7 +29,10 @@ class Header extends Component {
     }
 
     onHome = () => {
-        localStorage.setItem('curr_page', "1")
+        const {history} = this.props
+        if (history.location.pathname !== '/') {
+            localStorage.setItem('curr_page', "1")
+        }
     }
     
     render() {

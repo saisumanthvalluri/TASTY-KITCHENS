@@ -13,7 +13,6 @@ class Cart extends Component {
     state = {
         itemsList: [],
         placeOrder: false,
-        intervalId: null,
     }
 
     componentDidMount() {
@@ -83,8 +82,8 @@ class Cart extends Component {
                         </div>
                     </div>
                     <div className="plaord-ref-btn-box">
-                        <button className="place-order-btn" onClick={this.onPlaceOrder}>Place Order</button>
                         <button className="place-order-btn" onClick={this.onRefresh}>Refresh</button>
+                        <button className="place-order-btn" onClick={this.onPlaceOrder}>Place Order</button>
                     </div>
                 </div>
                 <Footer />

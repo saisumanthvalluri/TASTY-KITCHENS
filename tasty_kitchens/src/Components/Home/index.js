@@ -19,7 +19,6 @@ class Home extends Component {
         carouselApi: apiConstants.initial,
         restaurantsApi: apiConstants.initial,
         currPage: 1,
-        cartItems: [],
     }
 
     componentDidMount() {

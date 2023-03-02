@@ -10,8 +10,8 @@
     align-items: center;
     margin-bottom: 40px;
     border-radius: 10px;
-    background-color: #F1F5F9;
-    box-shadow: 0 0.5px 5px rgb(0 0 0 / 20%);
+    /* background-color: #F1F5F9; */
+    /* box-shadow: 0 0.5px 5px rgb(0 0 0 / 20%); */
 }
 
 .food-item-image {

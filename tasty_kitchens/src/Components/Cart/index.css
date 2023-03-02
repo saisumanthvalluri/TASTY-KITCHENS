@@ -110,7 +110,7 @@
 
 .cart-items-line {
     border: 1px dashed #CBD2D9;
-    width: 95%;
+    width: 100%;
     margin: 0;
 }
 
@@ -179,6 +179,10 @@
     line-height: 16px;
     align-self: flex-end;
     margin-right: 40px;
+}
+
+.place-order-btn:hover {
+    opacity: 0.8;
 }
 
 .payment-container {
@@ -275,10 +279,6 @@
         width: 100%;
     }
     
-    .cart-items-line {
-        width: 96%;
-    }
-    
     .total-price-box {
         width: 100%;
     }
@@ -295,6 +295,10 @@
     .total-price {
         font-size: 20px;
         line-height: 25px;
+    }
+
+    .plaord-ref-btn-box {
+        width: 100%;
     }
     
     .place-order-btn {
