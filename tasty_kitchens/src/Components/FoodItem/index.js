@@ -48,7 +48,7 @@ class FoodItem extends Component {
                 </IconButton>
             </React.Fragment>
         )
-        const {foodItemDetails} = this.props
+        const {foodItemDetails, restaurantName} = this.props
         const {id,name, cost, rating, imageUrl} = foodItemDetails
         const vertical = 'bottom'
         const horizontal = 'right'
@@ -67,6 +67,7 @@ class FoodItem extends Component {
                             id,
                             imageUrl,
                             name,
+                            restaurantName,
                         }
                         setCartItems(foodItem)
                         this.setState({open: true})

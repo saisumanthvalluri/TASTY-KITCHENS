@@ -39,7 +39,17 @@
     letter-spacing: 0.2px;
     color: #183B56;
     margin: 0;
-    margin-left: 10px;
+}
+
+.cart-item-rest-name {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #183B56;
+    margin: 0;
 }
 
 .quantity-box {

@@ -27,7 +27,7 @@ class CartItem extends Component {
 
     render() {
         const {itemDetails} = this.props
-        const {id, imageUrl, name, cost} = itemDetails
+        const {id, imageUrl, name, cost, restaurantName} = itemDetails
         const {quantity} = this.state
         return(
             <CartItemsContext.Consumer>
@@ -38,14 +38,18 @@ class CartItem extends Component {
                         imageUrl,
                         name,
                         cost,
-                        quantity
+                        quantity,
+                        restaurantName,
                     }
                     updateQuantity(foodItem)
                     return(
                         <li className='cart-item'>
                             <div className='image-name-box'>
                                 <img src={imageUrl} alt="cart-img" className='cart-item-image' />
-                                <h2 className='cart-item-name'>{name}</h2>
+                                <div style={{display: 'flex', flexDirection: 'column',margin: '0px', marginLeft: '10px'}}>
+                                    <h2 className='cart-item-name'>{name}</h2>
+                                    <h5 className='cart-item-rest-name'>from  {restaurantName}</h5>
+                                </div>
                             </div>
                             <div className='quantity-box'>
                                 <AiOutlineMinusSquare className='cart-item-quantity-icon' onClick={this.onDecrement} />
