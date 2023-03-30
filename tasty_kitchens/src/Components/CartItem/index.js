@@ -62,6 +62,7 @@ class CartItem extends Component {
                             <img src={imageUrl} alt="cart img" className='mob-cart-item-image' />
                             <div className='cart-item-details'>
                                 <h1 className='cart-item-name'>{name}</h1>
+                                <h5 className='cart-item-rest-name'>from  {restaurantName}</h5>
                                 <div className='mob-cart-quantity-box'>
                                     <AiOutlineMinusSquare className='cart-item-quantity-icon' onClick={this.onDecrement} />
                                     <h4 className='cart-item-quantity'>{quantity}</h4>
