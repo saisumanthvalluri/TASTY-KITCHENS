@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { AiOutlinePlusSquare, AiOutlineMinusSquare} from 'react-icons/ai'
 import CartItemsContext from '../../Context/CartItemsContext'
 import {BiRupee} from 'react-icons/bi'
+import {MdDeleteOutline} from 'react-icons/md'
 import './index.css'
 
 class CartItem extends Component {
@@ -26,7 +27,7 @@ class CartItem extends Component {
     }
 
     render() {
-        const {itemDetails} = this.props
+        const {itemDetails, DeleteCartItem} = this.props
         const {id, imageUrl, name, cost, restaurantName} = itemDetails
         const {quantity} = this.state
         return(
@@ -42,6 +43,9 @@ class CartItem extends Component {
                         restaurantName,
                     }
                     updateQuantity(foodItem)
+                    const onDeleteCartItem = () => {
+                        DeleteCartItem(id)
+                    }
                     return(
                         <li className='cart-item'>
                             <div className='image-name-box'>
@@ -70,6 +74,7 @@ class CartItem extends Component {
                                 </div>
                                 <h1 className='cart-item-price'><BiRupee /> {quantity * cost}</h1>
                             </div>
+                            <MdDeleteOutline className='delete-icon' onClick={onDeleteCartItem} />
                         </li>
                     )
                 }}

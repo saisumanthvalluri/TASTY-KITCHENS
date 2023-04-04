@@ -87,7 +87,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 92%;
+    width: 90%;
 }
 
 .t-h-item {
@@ -99,6 +99,7 @@
     letter-spacing: 0.2px;
     color: #475569;
     margin: 0;
+    margin-right: 20px;
 }
 
 .cart-items-list {
@@ -120,6 +121,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-right: 20px;
+    /* border: 1px solid red; */
 }
 
 .box {
@@ -160,6 +163,7 @@
     width: 90%;
     margin-top: 15px;
     justify-content: flex-end;
+    padding-right: 15px;
     /* border: 1px solid red; */
 }
 
@@ -303,6 +307,9 @@
     
     .place-order-btn {
         margin-right: 10px;
+        width: 80px;
+        height: 30px;
+        border-radius: 5px;
     }
     
     .pay-success-img {

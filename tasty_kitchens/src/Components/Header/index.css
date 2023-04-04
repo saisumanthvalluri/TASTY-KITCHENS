@@ -39,6 +39,10 @@
     margin-right: 30px;
 }
 
+.nav-link:hover {
+    opacity: 0.8;
+}
+
 .active {
     color: #F7931E;
 }

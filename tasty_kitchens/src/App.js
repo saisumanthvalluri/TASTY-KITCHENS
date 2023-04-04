@@ -42,7 +42,6 @@ class App extends Component {
     const cartItems = JSON.parse(localStorage.getItem('cart_items'))
     for (let i of cartItems) {
       if (i.id === item.id) {
-        console.log(item.id, "++++++")
         i.quantity = item.quantity
       }
     }

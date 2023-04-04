@@ -17,7 +17,7 @@ class Cart extends Component {
 
     componentDidMount() {
         const itemsList = JSON.parse(localStorage.getItem('cart_items'))
-          this.setState({itemsList})
+        this.setState({itemsList})
     }
 
     onPlaceOrder = () => {
@@ -55,6 +55,17 @@ class Cart extends Component {
         this.setState({itemsList})
     }
 
+    DeleteCartItem = (id) => {
+        const itemsList = JSON.parse(localStorage.getItem('cart_items'))
+        if (itemsList === null) {
+            localStorage.removeItem('cart_tems')
+        } else {
+            const updatedList = itemsList.filter(each => each.id !== id)
+            this.setState({itemsList: updatedList})
+            localStorage.setItem('cart_items', JSON.stringify(updatedList))
+        }
+    }
+
     renderCartItems = () => {
         let finalPrice = 0
         const {itemsList} = this.state
@@ -71,7 +82,7 @@ class Cart extends Component {
                     </div>
                     <ul className="cart-items-list">
                         {itemsList.map(e => (
-                            <CartItem key={e.id} itemDetails={e} onRefresh={this.onRefresh} />
+                            <CartItem key={e.id} itemDetails={e} DeleteCartItem={this.DeleteCartItem} onRefresh={this.onRefresh} />
                         ))}
                         <hr className="cart-items-line" />
                     </ul>
@@ -93,12 +104,20 @@ class Cart extends Component {
 
     renderRespectiveView = () => {
         const {itemsList, placeOrder} = this.state
-        if (itemsList === null) {
+        if (itemsList === null || itemsList.length === 0) {
             return this.renderEmptyCartView()
-        } else if (itemsList !== null && placeOrder === false) {
+        } else if ((itemsList !== null || itemsList.length !== 0) && placeOrder === false) {
             return this.renderCartItems()
         } else {
             return this.renderPaymentSuccessView()
+        }
+    }
+
+    componentWillUnmount() {
+        const itemsList = JSON.parse(localStorage.getItem('cart_items'))
+        //console.log(typeof(Object.entries(itemsList)), "000000")
+        if (itemsList === null || itemsList.length === 0) {
+            localStorage.removeItem('cart_items')
         }
     }
 
