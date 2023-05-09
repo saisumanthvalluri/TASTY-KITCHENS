@@ -18,12 +18,14 @@
     width: 230px;
     height: 160px;
     border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .food-item-details {
     margin-left: 13px;
     display: flex;
     flex-direction: column;
+    width: 280px;
 }
 
 .food-item-name {
@@ -141,10 +143,14 @@
         height: 125px;
         border-radius: 10px;
     }
+
+    .food-item-details {
+        width: 150px;
+    }
     
     .food-item-name {
         font-weight: 600;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 18px;
     }
     
@@ -163,7 +169,7 @@
     .add-item-btn {
         line-height: 14px;
         height: 25px;
-        width: 60px;
+        width: 50px;
         margin-top: 10px;
     }
     
@@ -173,7 +179,7 @@
     }
     
     .add-box {
-        width: 90px;
+        width: 80px;
         margin-top: 10px;
     }
     
@@ -183,6 +189,6 @@
     }
     
     .add-buttons {
-        font-size: 25px;
+        font-size: 22px;
     }
 }

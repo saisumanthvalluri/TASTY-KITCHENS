@@ -213,7 +213,7 @@ class Home extends Component {
                                         <h4 className='filter-text'>Sort by {sortType}</h4>
                                         <BsCaretDownFill className='filter-icon' style={{fontSize: "15px", marginTop: "5px"}} />
                                     </div>
-                                }>
+                                    }>
                                     <div className='filter-popup'>
                                         <h3 onClick={this.onLowest} className={lowestSortClass}>Lowest</h3>
                                         <h3 onClick={this.onHighest} className={highestSortClass}>Highest</h3>

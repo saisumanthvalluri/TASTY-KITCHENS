@@ -46,7 +46,6 @@
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
-    line-height: 24px;
     letter-spacing: 0.2px;
     color: #183B56;
     margin: 0;
@@ -153,9 +152,11 @@
     .mob-cart-quantity-box {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         margin: 0;
         margin-bottom: 4px;
+        width: 85px;
     }
 
     .cart-item-quantity {
@@ -164,12 +165,13 @@
 
     .cart-item-quantity-icon {
         margin-left: 0px;
+        font-size: 22px;
     }
     
     .mob-cart-item-image {
         display: flex;
         width: 140px;
-        height: 100px;
+        height: 103px;
         border-radius: 8px;
     }
 
@@ -182,7 +184,7 @@
     }
 
     .cart-item-name {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 18px;
         margin-left: 0px;
         /* margin-bottom: 6px; */

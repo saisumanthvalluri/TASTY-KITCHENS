@@ -37,7 +37,7 @@ class Header extends Component {
     
     render() {
         const itemsList = JSON.parse(localStorage.getItem('cart_items'))
-        const badgeNum = itemsList === null ? 0 : itemsList.length
+        const cartItemsCount = itemsList === null ? 0 : itemsList.length
         const {location} = this.props
         const {pathname} = location
         const pathParts = pathname.split('/')
@@ -63,7 +63,7 @@ class Header extends Component {
                                 <li className={homeLinkColor}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <Badge badgeContent={badgeNum} color="success">
+                                <Badge badgeContent={cartItemsCount} color="success" showZero>
                                     <li className={cartLinkColor} style={{marginRight: "0px"}}>Cart</li>
                                 </Badge>
                             </Link>
@@ -102,7 +102,7 @@ class Header extends Component {
                                 <li className={homeLinkColor} onClick={this.closeMenu}>Home</li>
                             </Link>
                             <Link to="/cart">
-                                <Badge badgeContent={badgeNum} color="success">
+                                <Badge badgeContent={cartItemsCount} color="success" showZero>
                                     <li className={cartLinkColor} style={{marginRight: "0px"}}>Cart</li>
                                 </Badge>
                             </Link>

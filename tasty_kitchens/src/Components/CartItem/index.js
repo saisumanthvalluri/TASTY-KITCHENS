@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { AiOutlinePlusSquare, AiOutlineMinusSquare} from 'react-icons/ai'
+import Popup from 'reactjs-popup'
 import CartItemsContext from '../../Context/CartItemsContext'
 import {BiRupee} from 'react-icons/bi'
 import {MdDeleteOutline} from 'react-icons/md'
@@ -74,7 +75,22 @@ class CartItem extends Component {
                                 </div>
                                 <h1 className='cart-item-price'><BiRupee /> {quantity * cost}</h1>
                             </div>
-                            <MdDeleteOutline className='delete-icon' onClick={onDeleteCartItem} />
+                            <Popup
+                                modal
+                                className="popup-content"
+                                trigger={
+                                    <MdDeleteOutline className='delete-icon' />
+                                }>
+                                {close => (
+                                    <div className='logout-popup-box'>
+                                        <h2 className='are-you-sure-text'>Are you sure you want to delete {name} ?</h2>
+                                        <div className='buttons-box'>
+                                            <button className='btn cancel' onClick={() => close()}>Cancel</button>
+                                            <button className='btn confirm' onClick={onDeleteCartItem}>Confirm</button>
+                                        </div>
+                                    </div>
+                                )}
+                            </Popup>
                         </li>
                     )
                 }}

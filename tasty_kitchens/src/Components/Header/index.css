@@ -183,27 +183,27 @@
 }
 
 .cancel {
-    color: #cf3d29;
-    border: 1px solid #cf3d29;
-    transition: 0.3s ease-in-out;
-}
-
-.cancel:hover {
-    background-color: #cf3d29;
-    color: #FFFFFF;
-    transition: 0.3s ease-in-out;
-}
-
-.confirm {
     color: #58cf34;
     border: 1px solid #58cf34;
     transition: 0.3s ease-in-out;
 }
 
-.confirm:hover {
-    transition: 0.3s ease-in-out;
+.cancel:hover {
     color: #FFFFFF;
     background-color: #58cf34;
+    transition: 0.3s ease-in-out;
+}
+
+.confirm {
+    color: #cf3d29;
+    border: 1px solid #cf3d29;
+    transition: 0.3s ease-in-out;
+}
+
+.confirm:hover {
+    color: #FFFFFF;
+    background-color: #cf3d29;
+    transition: 0.3s ease-in-out;
 }
 
 .mob-menu-close-icon:hover {
